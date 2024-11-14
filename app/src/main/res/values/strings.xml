@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">music</string>
+    <string name="home">Home</string>
+    <string name="t_m_ki_m">Tìm kiếm</string>
+    <string name="c_i_t">Cài đặt</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "46798976959",
+    "firebase_url": "https://storage-fb37c-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "storage-fb37c",
+    "storage_bucket": "storage-fb37c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46798976959:android:8f6442ca168242c5ed530a",
+        "android_client_info": {
+          "package_name": "com.example.music"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA137Pdav7cA4RgThh97ZKyoG4W6qoSMBE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
