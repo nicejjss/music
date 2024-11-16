@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -24,8 +25,11 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
+import com.example.music.Fragment.CommentFragment;
 import com.example.music.model.LikeModel;
 import com.example.music.model.SongModel;
 
@@ -65,6 +69,9 @@ public class SongActivity extends AppCompatActivity {
     private TextView textLike;
     private boolean isLiked = false;
 
+    private ImageView imageViewComment;
+    private FrameLayout commentFragmentContainer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +90,9 @@ public class SongActivity extends AppCompatActivity {
         back = findViewById(R.id.imgback);
         textLike = findViewById(R.id.textlike);
         like = findViewById(R.id.like);
+
+        initUiComment();
+        initListenerComment();
 
         // Lấy thông tin từ Intent
         Intent intent = getIntent();
@@ -432,5 +442,28 @@ public class SongActivity extends AppCompatActivity {
                         Toast.makeText(SongActivity.this, "Lỗi khi xóa lượt thích", Toast.LENGTH_SHORT).show();
                     }
                 });
+    }
+
+    private void initUiComment(){
+        imageViewComment = findViewById(R.id.ic_comment);
+        commentFragmentContainer = findViewById(R.id.comment_fragment_container);
+    }
+
+    private void initListenerComment(){
+        imageViewComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(SongActivity.this,CommentActivity.class);
+                i.putExtra("songID",songList.get(currentPosition).getId());
+                startActivity(i);
+                // Khi người dùng nhấn vào icon bình luận, chuyển sang CommentFragment
+//                CommentFragment commentFragment = new CommentFragment();
+//                FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
+//
+//                transaction.replace(R.id.comment_fragment_container,commentFragment);
+//                transaction.addToBackStack(null);
+//                transaction.commit();
+            }
+        });
     }
 }
