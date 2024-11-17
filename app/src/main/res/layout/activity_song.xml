@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Song">
+    tools:context=".SongActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -83,12 +83,22 @@
                     android:text="0" />
 
                 <ImageView
+                    android:id="@+id/ic_comment"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_toRightOf="@+id/like"
+                    android:src="@drawable/ic_comment"
+                    app:tint="@color/black" />
+
+                <ImageView
                     android:id="@+id/phonering"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="30dp"
-                    android:layout_toRightOf="@+id/like"
+                    android:layout_toRightOf="@+id/ic_comment"
                     android:src="@drawable/ic_phonering"
                     app:tint="@color/black" />
 
@@ -96,7 +106,7 @@
                     android:id="@+id/btnDownload"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="60dp"
+                    android:layout_marginLeft="40dp"
                     android:layout_marginTop="30dp"
                     android:layout_toRightOf="@+id/phonering"
                     android:src="@drawable/ic_download" />
@@ -202,6 +212,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </LinearLayout>
+
 
     </ScrollView>
 
