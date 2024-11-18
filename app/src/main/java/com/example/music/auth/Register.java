@@ -1,5 +1,6 @@
 package com.example.music.auth;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -29,6 +30,7 @@ import java.util.Map;
 public class Register extends AppCompatActivity {
     private EditText edtUsername, edtEmail, edtPassword, edtRePassword;
     private Button btnRegister, btnLoginInRegister;
+    private ProgressDialog progressDialog;
     private FirebaseFirestore db;
 
     @Override
@@ -36,7 +38,6 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // EdgeToEdge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -54,7 +55,9 @@ public class Register extends AppCompatActivity {
         edtRePassword = findViewById(R.id.edtRegisterPassword2);
         btnRegister = findViewById(R.id.btnRegister);
         btnLoginInRegister = findViewById(R.id.btnLoginInRegister);
-        db = FirebaseFirestore.getInstance(); // Khởi tạo Firestore
+
+        progressDialog = new ProgressDialog(this);
+        db = FirebaseFirestore.getInstance();
     }
 
     private void initListener() {
@@ -85,9 +88,13 @@ public class Register extends AppCompatActivity {
 
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
+        //hien thi progress dialog
+        progressDialog.show();
+
         // Tạo tài khoản Firebase
         auth.createUserWithEmailAndPassword(strEmail, strPassword)
                 .addOnCompleteListener(Register.this, task -> {
+                    progressDialog.dismiss();
                     if (task.isSuccessful()) {
                         // Lưu thông tin người dùng vào Firestore
                         FirebaseUser user = auth.getCurrentUser();
