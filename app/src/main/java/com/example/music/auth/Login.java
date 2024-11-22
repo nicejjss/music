@@ -1,5 +1,6 @@
 package com.example.music.auth;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Login extends AppCompatActivity {
     private Button btnLogin,btnRegisterInLogin;
     private EditText edtLoginEmail, edtLoginPassword;
-
-    private FirebaseAuth auth;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +40,6 @@ public class Login extends AppCompatActivity {
             return insets;
         });
 
-        auth = FirebaseAuth.getInstance();
         initUi();
         initListener();
     }
@@ -50,6 +49,7 @@ public class Login extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         edtLoginEmail = findViewById(R.id.edtLoginEmail);
         edtLoginPassword = findViewById(R.id.edtLoginPassword);
+        progressDialog = new ProgressDialog(this);
     }
 
     private void initListener() {
@@ -66,11 +66,17 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
+                FirebaseAuth auth = FirebaseAuth.getInstance();
+
+                //Hien thi progress dialog
+                progressDialog.show();
+
                 //Xac thuc nguoi dung voi Firebase
                 auth.signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
+                                progressDialog.dismiss();
                                 if(task.isSuccessful()){
                                     //Dang nhap thanh cong
                                     FirebaseUser user = auth.getCurrentUser();

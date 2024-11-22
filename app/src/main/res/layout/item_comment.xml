@@ -26,6 +26,7 @@
                 android:id="@+id/accountComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textStyle="bold"
                 android:text="Tên tài khoản"/>
             <TextView
                 android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
                 android:id="@+id/timeComment"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="11/11/1111 lúc 11:11"/>
+                android:text="11/11/1111 lúc 11:11"
+                android:textStyle="italic"/>
         </LinearLayout>
         <TextView
             android:id="@+id/bodyComment"
@@ -52,6 +54,7 @@
                 android:id="@+id/likeComment"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
+                android:layout_marginTop="5dp"
                 android:src="@drawable/like_icon"
                 android:layout_gravity="center_vertical"/>
 
@@ -60,15 +63,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="2dp"
+                android:layout_marginTop="5dp"
                 android:layout_gravity="center_vertical"
-                android:text="123" />
-            <Button
-                android:id="@+id/replyComment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Trả lời"
-                android:backgroundTint="@android:color/transparent"
-                android:textColor="@color/black"/>
+                android:text="0" />
+
+<!--            <Button-->
+<!--                android:id="@+id/replyComment"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Trả lời"-->
+<!--                android:backgroundTint="@android:color/transparent"-->
+<!--                android:textColor="@color/black"/>-->
         </LinearLayout>
     </LinearLayout>
 

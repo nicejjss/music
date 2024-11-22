@@ -17,10 +17,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="100dp"
         android:hint="Email ..."
-        android:inputType="textEmailAddress"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:inputType="textEmailAddress" />
 
 
     <EditText
@@ -30,10 +27,7 @@
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="16dp"
         android:hint="Mật khẩu ..."
-        android:inputType="textPassword"
-        app:layout_constraintTop_toBottomOf="@id/edtLoginEmail"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnLogin"
@@ -43,30 +37,21 @@
         android:text="Đăng nhập"
         android:textColor="@color/black"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/edtLoginPassword"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/logInWithGoogle"
         android:layout_width="183dp"
         android:layout_height="26dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/continue_with_google"
-        app:layout_constraintTop_toBottomOf="@id/btnLogin"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:src="@drawable/continue_with_google" />
 
     <LinearLayout
         android:id="@+id/layout_RegisterAndForgotPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/logInWithGoogle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnRegisterInLogin"
