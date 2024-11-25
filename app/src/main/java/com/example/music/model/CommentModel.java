@@ -10,7 +10,8 @@ import java.util.Locale;
 public class CommentModel {
     private String commentId, content, userId, username;
     private int likeCount;
-    private String  songId, avatarUrl;private Timestamp timestamp;
+    private String  songId, avatarUrl;
+    private Timestamp timestamp;
     private boolean liked;
 
     public CommentModel(){
@@ -72,8 +73,8 @@ public class CommentModel {
     public String getTimestamp() {
         Date date = timestamp.toDate();
 
-        // Định dạng ngày tháng năm
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+        // Định dạng giờ ngày tháng năm
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault());
         String formattedDate = dateFormat.format(date);
         return formattedDate;
     }

@@ -64,6 +64,12 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.SongViewHolder
         return songList.size();
     }
 
+    public void updateData(ArrayList<SongModel> newList) {
+        songList.clear();
+        songList.addAll(newList);
+        notifyDataSetChanged();
+    }
+
     public static class SongViewHolder extends RecyclerView.ViewHolder {
 
         TextView titleText, subtitleText;
