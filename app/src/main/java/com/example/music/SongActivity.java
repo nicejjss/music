@@ -119,14 +119,6 @@ public class SongActivity extends AppCompatActivity {
 
         playSong(songUrl);
 
-        // Thiết lập SeekBar để theo dõi tiến trình bài hát
-
-        mediaPlayer.setOnCompletionListener(mp -> {
-            // Khi bài hát kết thúc, dừng lại và quay lại trạng thái ban đầu
-            isPlaying = false;
-            playBtn.setImageResource(R.drawable.play);  // Thay đổi biểu tượng thành Play
-        });
-
         nextBtn.setOnClickListener(v -> {
             currentPosition = currentPosition + 1;
             if (currentPosition > songList.size() - 1) {
