@@ -443,13 +443,6 @@ public class SongActivity extends AppCompatActivity {
                 Intent i = new Intent(SongActivity.this,CommentActivity.class);
                 i.putExtra("songID",songList.get(currentPosition).getId());
                 startActivity(i);
-                // Khi người dùng nhấn vào icon bình luận, chuyển sang CommentFragment
-//                CommentFragment commentFragment = new CommentFragment();
-//                FragmentTransaction transaction =getSupportFragmentManager().beginTransaction();
-//
-//                transaction.replace(R.id.comment_fragment_container,commentFragment);
-//                transaction.addToBackStack(null);
-//                transaction.commit();
             }
         });
     }

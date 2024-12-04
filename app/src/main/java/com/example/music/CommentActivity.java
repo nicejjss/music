@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -144,7 +146,7 @@ public class CommentActivity extends AppCompatActivity {
                         // Lấy document bài hát
                         QueryDocumentSnapshot docFirst = (QueryDocumentSnapshot) task.getResult().getDocuments().get(0);
                         docFirst.getReference().collection("comment")
-                                .orderBy("timestamp", Query.Direction.ASCENDING) // Sắp xếp theo thời gian, cũ nhất trước
+                                .orderBy("timestamp", Query.Direction.DESCENDING) // Sắp xếp theo thời gian, mới nhất trước
                                 .get()
                                 .addOnCompleteListener(commentTask -> {
                                     if (commentTask.isSuccessful() && commentTask.getResult() != null) {
